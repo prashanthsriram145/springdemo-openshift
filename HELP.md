@@ -41,3 +41,24 @@ oc create -f templates/configmap.yaml
 oc create -f templates/deployment.yaml
 
 oc create -f templates/service.yaml
+
+## Command to start mysql on openshift cluster
+
+oc new-app -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -e MYSQL_DATABASE=mydatabase -e MYSQL_ROOT_PASSWORD=rootpassword --image=quay.io/openshifttest/mysql:5.7
+
+## Command to connect to mysql from pod
+
+mysql --host=mysql --user=myuser --password=mypassword mydatabase
+
+oc create configmap springdemo-mysql --from-literal MYSQL_USER="myuser" --from-literal MYSQL_PASSWORD="mypassword" --from-literal MYSQL_DATABASE="mydatabase" --from-literal MYSQL_ROOT_PASSWORD="rootpassword"
+
+oc set env deployment.apps/mysql --from=cm/springdemo-mysql
+
+oc create -f templates/mysql/configmap.yaml
+
+oc create -f templates/mysql/deployment.yaml
+
+oc create -f templates/mysql/service.yaml
+
+
+
