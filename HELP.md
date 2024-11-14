@@ -37,5 +37,7 @@ Ex: curl http://springdemo-prashanthsriram-dev.apps.sandbox-m2.ll9k.p1.openshift
 ## Way to deploy application using template files of deployment, service and configmap
 
 oc create -f templates/configmap.yaml
+
 oc create -f templates/deployment.yaml
+
 oc create -f templates/service.yaml
