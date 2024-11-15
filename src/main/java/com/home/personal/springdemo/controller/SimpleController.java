@@ -20,8 +20,8 @@ public class SimpleController {
 
 
     @GetMapping("/welcome")
-    public String getHello() {
-        return String.format("Hello %s", username);
+    public ResponseEntity<Employee> getHello() {
+        return employeeService.getEmployeeById(1L);
     }
 
     @PostMapping("/saveEmployee")

@@ -30,12 +30,12 @@ spec:
                   name: springdemo-mysql
             - name: MYSQL_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: MYSQL_PASSWORD
                   name: springdemo-mysql
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: MYSQL_ROOT_PASSWORD
                   name: springdemo-mysql
             - name: MYSQL_USER

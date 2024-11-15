@@ -1,10 +1,8 @@
 apiVersion: v1
 data:
   username: user290
+  SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mydatabase
+  SPRING_DATASOURCE_USERNAME: myuser
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2024-11-14T14:14:59Z"
-  name: springdemo-cm
-  namespace: prashanthsriram-dev
-  resourceVersion: "5228007264"
-  uid: dea9565a-52b1-47b4-8ce2-9ada1fb82690
+  name: springdemo
