@@ -3,9 +3,10 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+deployment: springdemo
 
 image:
-  repository: nginx
+  repository: quay.io/prashanthsriram/springdemo@sha256:02a6715213c89811fc37803fdd65083c616d91e78fde6ee67446a86671e4708f
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -38,7 +39,19 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
+  selector: springdemo
+
+configmap:
+  name: springdemo
+  username: user290
+  spring_datasource_url: jdbc:mysql://mysql:3306/mydatabase
+  spring_datasource_username: myuser
+
+secret:
+  name: springdemo
+  spring_datasource_password: bXlwYXNzd29yZA==
+
 
 ingress:
   enabled: false
